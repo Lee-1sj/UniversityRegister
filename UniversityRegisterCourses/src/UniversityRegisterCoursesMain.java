@@ -24,19 +24,19 @@ public class UniversityRegisterCoursesMain {
                 MenuViewer.choice.nextLine();
 
                 switch (choiceNum) {
-                    case MENU_CHOICE.SUBJECT:
+                    case MENU_CHOICE.SUBJECT: // 1. 학과 정보 목록/입력/수정/삭제
                         subjectMenu();
                         break;
-                    case MENU_CHOICE.STUDENT:
+                    case MENU_CHOICE.STUDENT: // 2. 학생 정보 입력/수정/목록
                         studentMenu();
                         break;
-                    case MENU_CHOICE.LESSON:
+                    case MENU_CHOICE.LESSON: // 3. 과목 정보 목록/입력/수정/삭제
                         lessonMenu();
                         break;
-                    case MENU_CHOICE.TRAINEE:
+                    case MENU_CHOICE.TRAINEE: // 4. 수강 신청 목록/신청/취소
                         traineeMenu();
                         break;
-                    case MENU_CHOICE.EXIT:
+                    case MENU_CHOICE.EXIT: // 5. 종료
                         System.out.println("프로그램을 종료합니다.");
                         return;
                     default:
@@ -52,7 +52,7 @@ public class UniversityRegisterCoursesMain {
     }
 
     // 수강 신청 메뉴
-    public static void traineeMenu() throws Exception {
+    public static void traineeMenu() {
         int choice;
 
         TraineeRegisterManager traineeManager = new TraineeRegisterManager();
@@ -63,26 +63,26 @@ public class UniversityRegisterCoursesMain {
         switch (choice) {
             case TRAINEE_CHOICE.LIST:
                 System.out.println("");
-                traineeManager.traineeList();
+                traineeManager.traineeList(); // 1. 수강 신청 목록
                 break;
             case TRAINEE_CHOICE.INSERT:
                 System.out.println("");
-                traineeManager.traineeRegister();
+                traineeManager.traineeRegister(); // 2. 수강 신청
                 break;
             case TRAINEE_CHOICE.UPDATE:
                 System.out.println("");
-                traineeManager.traineeDelete();
+                traineeManager.traineeDelete(); // 3. 수강 취소
                 break;
-            case TRAINEE_CHOICE.MAIN:
+            case TRAINEE_CHOICE.MAIN: // 4. 메인메뉴
                 return;
             default:
                 System.out.println("해당 메뉴 번호만 입력하세요.");
-
+        }
 
     }
 
     // 과목 메뉴
-    public static void lessonMenu() throws Exception {
+    public static void lessonMenu() {
         int choice;
 
         LessonRegisterManager lessonManager = new LessonRegisterManager();
@@ -93,21 +93,21 @@ public class UniversityRegisterCoursesMain {
         switch (choice) {
             case LESSON_CHOICE.LIST:
                 System.out.println("");
-                lessonManager.subjectList();
+                lessonManager.lessonList(); // 1. 과목 정보 목록
                 break;
             case LESSON_CHOICE.INSERT:
                 System.out.println("");
-                lessonManager.subjectRegister();
+                lessonManager.lessonRegister(); // 2. 과목 정보 입력
                 break;
             case LESSON_CHOICE.UPDATE:
                 System.out.println("");
-                lessonManager.subjectUpdate();
+                lessonManager.lessonUpdate(); // 3. 과목 정보 수정
                 break;
             case LESSON_CHOICE.DELETE:
                 System.out.println("");
-                lessonManager.subjectUpdate();
+                lessonManager.lessonDelete(); // 4. 과목 정보 삭제
                 break;
-            case LESSON_CHOICE.MAIN:
+            case LESSON_CHOICE.MAIN: // 5. 메인메뉴
                 return;
             default:
                 System.out.println("해당 메뉴 번호만 입력하세요.");
@@ -116,7 +116,7 @@ public class UniversityRegisterCoursesMain {
     }
 
     // 학생 메뉴
-    public static void studentMenu() throws Exception {
+    public static void studentMenu() {
         int choice;
 
         StudentRegisterManager studentManager = new StudentRegisterManager();
@@ -127,17 +127,17 @@ public class UniversityRegisterCoursesMain {
         switch (choice) {
             case STUDENT_CHOICE.INSERT:
                 System.out.println("");
-                studentManager.subjectList();
+                studentManager.studentRegister(); // 1. 학생 정보 입력
                 break;
             case STUDENT_CHOICE.UPDATE:
                 System.out.println("");
-                studentManager.subjectRegister();
+                studentManager.studentUpdate(); // 2. 학생 정보 수정
                 break;
             case STUDENT_CHOICE.LIST:
                 System.out.println("");
-                studentManager.subjectUpdate();
+                studentManager.studentTotalList(); // 3. 학생 전체 목록
                 break;
-            case STUDENT_CHOICE.MAIN:
+            case STUDENT_CHOICE.MAIN: // 4. 메인메뉴
                 return;
             default:
                 System.out.println("해당 메뉴 번호만 입력하세요.");
@@ -156,21 +156,21 @@ public class UniversityRegisterCoursesMain {
         switch (choice) {
             case SUBJECT_CHOICE.LIST:
                 System.out.println("");
-                subjectManager.subjectList();
+                subjectManager.subjectList(); // 학과 정보 목록
                 break;
             case SUBJECT_CHOICE.INSERT:
                 System.out.println("");
-                subjectManager.subjectRegister();
+                subjectManager.subjectRegister(); // 학과 정보 입력
                 break;
             case SUBJECT_CHOICE.UPDATE:
                 System.out.println("");
-                subjectManager.subjectUpdate();
+                subjectManager.subjectUpdate(); // 학과 정보 수정
                 break;
             case SUBJECT_CHOICE.DELETE:
                 System.out.println("");
-                subjectManager.subjectDelete();
+                subjectManager.subjectDelete(); // 학과 정보 삭제
                 break;
-            case SUBJECT_CHOICE.MAIN:
+            case SUBJECT_CHOICE.MAIN: // 메인 메뉴
                 return;
             default:
                 System.out.println("해당 메뉴 번호만 입력하세요.");
