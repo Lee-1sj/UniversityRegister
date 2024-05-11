@@ -12,7 +12,7 @@ public class DBUtil {
 
     public static Connection getConnection() {
         // db.properties 파일 경로
-        String filePath = "D:/University/UniversityRegisterCourses/src/db.properties";
+        String filePath = "src/db.properties";
         Connection con = null;
 
         try { // db.properties db 주소, 사용자명, 암호 가져오기

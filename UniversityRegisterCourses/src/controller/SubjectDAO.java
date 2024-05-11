@@ -27,7 +27,7 @@ public class SubjectDAO {
                 sVo.setNo(rs.getInt("no"));
                 sVo.setS_num(rs.getString("s_num"));
                 sVo.setS_name(rs.getString("s_name"));
-                System.out.println(sVo.getNo() + "\t" + sVo.getS_num() + "\t" + sVo.getS_name());
+                System.out.println(sVo.getNo() + "\t\t" + sVo.getS_num() + "\t\t" + sVo.getS_name());
             }
         } catch (SQLException se) {
             System.out.println(se);
@@ -63,9 +63,9 @@ public class SubjectDAO {
 
             int i = pstmt.executeUpdate();
             if (i == 1) {
-                System.out.println(svo.getS_name() + "학과 등록 성공");
+                System.out.println(svo.getS_name() + " 등록 성공");
             } else {
-                System.out.println("학과 등록 실패");
+                System.out.println(" 등록 실패");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -100,9 +100,9 @@ public class SubjectDAO {
 
             int i = pstmt.executeUpdate();
             if (i == 1) {
-                System.out.println(svo.getS_name() + "학과 등록 성공");
+                System.out.println(svo.getS_name() + " 등록 성공");
             } else {
-                System.out.println("학과 등록 실패");
+                System.out.println(" 등록 실패");
             }
         } catch (SQLException e) {
             e.printStackTrace();

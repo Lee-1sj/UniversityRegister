@@ -21,9 +21,9 @@ public class SubjectRegisterManager {
         sd.getSubjectTotalList(); // 리스트 전체를 한번 출력
 
         System.out.println("학과 정보 입력");
-        System.out.println("학과번호 >> ");
+        System.out.print("학과번호 >> ");
         String s_num = input.nextLine();
-        System.out.println("학과명 >> ");
+        System.out.print("학과명 >> ");
         String s_name = input.nextLine();
         SubjectVO svo = new SubjectVO(s_num, s_name);
 
@@ -39,11 +39,11 @@ public class SubjectRegisterManager {
         sd.getSubjectTotalList(); // 리스트 전체를 한번 출력
 
         System.out.println("수정할 학과 일련번호 입력");
-        System.out.println("일련번호 >> ");
+        System.out.print("일련번호 >> ");
         int no = Integer.parseInt(input.nextLine());
-        System.out.println("학과번호 입력 >> ");
+        System.out.print("학과번호 입력 >> ");
         String s_num = input.nextLine();
-        System.out.println("학과명 입력 >> ");
+        System.out.print("학과명 입력 >> ");
         String s_name = input.nextLine();
 
         SubjectVO svo = new SubjectVO(no, s_num, s_name);
@@ -59,7 +59,7 @@ public class SubjectRegisterManager {
         sd.getSubjectTotalList(); // 리스트 전체를 한번 출력
 
         System.out.println("삭제할 학과 일련번호 입력");
-        System.out.println("일련번호 >> ");
+        System.out.print("일련번호 >> ");
         int no = Integer.parseInt(input.nextLine());
 
         sd.setSubjectDelete(no);
