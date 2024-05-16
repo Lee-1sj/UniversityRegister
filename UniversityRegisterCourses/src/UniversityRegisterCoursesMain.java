@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+
 import controller.LessonRegisterManager;
 import controller.StudentRegisterManager;
 import controller.SubjectRegisterManager;
@@ -42,6 +44,9 @@ public class UniversityRegisterCoursesMain {
                     default:
                         System.out.println("해당 메뉴 번호만 입력하세요.");
                 }// end of switch
+            } catch (InputMismatchException e) {
+                System.err.println("잘못된 입력 형식입니다. 숫자를 입력하세요.");
+                MenuViewer.choice.nextLine(); // 클리어
             } catch (Exception e) {
                 System.out.println("\n입력에 오류가 있습니다.\n프로그램을 다시 시작하세요.");
                 return;
@@ -57,26 +62,35 @@ public class UniversityRegisterCoursesMain {
 
         TraineeRegisterManager traineeManager = new TraineeRegisterManager();
         MenuViewer.traineeMenuView();
-        choice = MenuViewer.choice.nextInt();
-        MenuViewer.choice.nextLine();
-
-        switch (choice) {
-            case TRAINEE_CHOICE.LIST:
-                System.out.println("");
-                traineeManager.traineeList(); // 1. 수강 신청 목록
-                break;
-            case TRAINEE_CHOICE.INSERT:
-                System.out.println("");
-                traineeManager.traineeRegister(); // 2. 수강 신청
-                break;
-            case TRAINEE_CHOICE.UPDATE:
-                System.out.println("");
-                traineeManager.traineeDelete(); // 3. 수강 취소
-                break;
-            case TRAINEE_CHOICE.MAIN: // 4. 메인메뉴
-                return;
-            default:
-                System.out.println("해당 메뉴 번호만 입력하세요.");
+        
+        try {
+            choice = MenuViewer.choice.nextInt();
+            MenuViewer.choice.nextLine();
+    
+            switch (choice) {
+                case TRAINEE_CHOICE.LIST:
+                    System.out.println("");
+                    traineeManager.traineeList(); // 1. 수강 신청 목록
+                    break;
+                case TRAINEE_CHOICE.INSERT:
+                    System.out.println("");
+                    traineeManager.traineeRegister(); // 2. 수강 신청
+                    break;
+                case TRAINEE_CHOICE.UPDATE:
+                    System.out.println("");
+                    traineeManager.traineeDelete(); // 3. 수강 취소
+                    break;
+                case TRAINEE_CHOICE.MAIN: // 4. 메인메뉴
+                    return;
+                default:
+                    System.out.println("해당 메뉴 번호만 입력하세요.");
+            }
+        } catch (InputMismatchException e) {
+            System.err.println("잘못된 입력 형식입니다. 숫자를 입력하세요.");
+            MenuViewer.choice.nextLine(); // 클리어
+        } catch (Exception e) {
+            System.out.println("\n입력에 오류가 있습니다.\n프로그램을 다시 시작하세요.");
+            return;
         }
 
     }
@@ -87,32 +101,40 @@ public class UniversityRegisterCoursesMain {
 
         LessonRegisterManager lessonManager = new LessonRegisterManager();
         MenuViewer.lessonMenuView();
-        choice = MenuViewer.choice.nextInt();
-        MenuViewer.choice.nextLine();
-
-        switch (choice) {
-            case LESSON_CHOICE.LIST:
-                System.out.println("");
-                lessonManager.lessonList(); // 1. 과목 정보 목록
-                break;
-            case LESSON_CHOICE.INSERT:
-                System.out.println("");
-                lessonManager.lessonRegister(); // 2. 과목 정보 입력
-                break;
-            case LESSON_CHOICE.UPDATE:
-                System.out.println("");
-                lessonManager.lessonUpdate(); // 3. 과목 정보 수정
-                break;
-            case LESSON_CHOICE.DELETE:
-                System.out.println("");
-                lessonManager.lessonDelete(); // 4. 과목 정보 삭제
-                break;
-            case LESSON_CHOICE.MAIN: // 5. 메인메뉴
-                return;
-            default:
-                System.out.println("해당 메뉴 번호만 입력하세요.");
-        }// end of switch
-
+        
+        try {
+            choice = MenuViewer.choice.nextInt();
+            MenuViewer.choice.nextLine();
+    
+            switch (choice) {
+                case LESSON_CHOICE.LIST:
+                    System.out.println("");
+                    lessonManager.lessonList(); // 1. 과목 정보 목록
+                    break;
+                case LESSON_CHOICE.INSERT:
+                    System.out.println("");
+                    lessonManager.lessonRegister(); // 2. 과목 정보 입력
+                    break;
+                case LESSON_CHOICE.UPDATE:
+                    System.out.println("");
+                    lessonManager.lessonUpdate(); // 3. 과목 정보 수정
+                    break;
+                case LESSON_CHOICE.DELETE:
+                    System.out.println("");
+                    lessonManager.lessonDelete(); // 4. 과목 정보 삭제
+                    break;
+                case LESSON_CHOICE.MAIN: // 5. 메인메뉴
+                    return;
+                default:
+                    System.out.println("해당 메뉴 번호만 입력하세요.");
+            }// end of switch
+        } catch (InputMismatchException e) {
+            System.err.println("잘못된 입력 형식입니다. 숫자를 입력하세요.");
+            MenuViewer.choice.nextLine(); // 클리어
+        } catch (Exception e) {
+            System.out.println("\n입력에 오류가 있습니다.\n프로그램을 다시 시작하세요.");
+            return;
+        }
     }
 
     // 학생 메뉴
@@ -121,27 +143,37 @@ public class UniversityRegisterCoursesMain {
 
         StudentRegisterManager studentManager = new StudentRegisterManager();
         MenuViewer.studentMenuView();
-        choice = MenuViewer.choice.nextInt();
-        MenuViewer.choice.nextLine();
+        
+        try {
+            choice = MenuViewer.choice.nextInt();
+            MenuViewer.choice.nextLine();
+    
+            switch (choice) {
+                case STUDENT_CHOICE.INSERT:
+                    System.out.println("");
+                    studentManager.studentRegister(); // 1. 학생 정보 입력
+                    break;
+                case STUDENT_CHOICE.UPDATE:
+                    System.out.println("");
+                    studentManager.studentUpdate(); // 2. 학생 정보 수정
+                    break;
+                case STUDENT_CHOICE.LIST:
+                    System.out.println("");
+                    studentManager.studentTotalList(); // 3. 학생 전체 목록
+                    break;
+                case STUDENT_CHOICE.MAIN: // 4. 메인메뉴
+                    return;
+                default:
+                    System.out.println("해당 메뉴 번호만 입력하세요.");
+            }// end of switch
+        } catch (InputMismatchException e) {
+            System.err.println("잘못된 입력 형식입니다. 숫자를 입력하세요.");
+            MenuViewer.choice.nextLine(); // 클리어
+        } catch (Exception e) {
+            System.out.println("\n입력에 오류가 있습니다.\n프로그램을 다시 시작하세요.");
+            return;
+        }
 
-        switch (choice) {
-            case STUDENT_CHOICE.INSERT:
-                System.out.println("");
-                studentManager.studentRegister(); // 1. 학생 정보 입력
-                break;
-            case STUDENT_CHOICE.UPDATE:
-                System.out.println("");
-                studentManager.studentUpdate(); // 2. 학생 정보 수정
-                break;
-            case STUDENT_CHOICE.LIST:
-                System.out.println("");
-                studentManager.studentTotalList(); // 3. 학생 전체 목록
-                break;
-            case STUDENT_CHOICE.MAIN: // 4. 메인메뉴
-                return;
-            default:
-                System.out.println("해당 메뉴 번호만 입력하세요.");
-        }// end of switch
     }
 
     // 학과 메뉴
@@ -150,31 +182,40 @@ public class UniversityRegisterCoursesMain {
 
         SubjectRegisterManager subjectManager = new SubjectRegisterManager();
         MenuViewer.subjectMenuView();
-        choice = MenuViewer.choice.nextInt();
-        MenuViewer.choice.nextLine();
-
-        switch (choice) {
-            case SUBJECT_CHOICE.LIST:
-                System.out.println("");
-                subjectManager.subjectList(); // 학과 정보 목록
-                break;
-            case SUBJECT_CHOICE.INSERT:
-                System.out.println("");
-                subjectManager.subjectRegister(); // 학과 정보 입력
-                break;
-            case SUBJECT_CHOICE.UPDATE:
-                System.out.println("");
-                subjectManager.subjectUpdate(); // 학과 정보 수정
-                break;
-            case SUBJECT_CHOICE.DELETE:
-                System.out.println("");
-                subjectManager.subjectDelete(); // 학과 정보 삭제
-                break;
-            case SUBJECT_CHOICE.MAIN: // 메인 메뉴
-                return;
-            default:
-                System.out.println("해당 메뉴 번호만 입력하세요.");
-        }// end of switch
+        
+        try {
+            choice = MenuViewer.choice.nextInt();
+            MenuViewer.choice.nextLine();
+    
+            switch (choice) {
+                case SUBJECT_CHOICE.LIST:
+                    System.out.println("");
+                    subjectManager.subjectList(); // 학과 정보 목록
+                    break;
+                case SUBJECT_CHOICE.INSERT:
+                    System.out.println("");
+                    subjectManager.subjectRegister(); // 학과 정보 입력
+                    break;
+                case SUBJECT_CHOICE.UPDATE:
+                    System.out.println("");
+                    subjectManager.subjectUpdate(); // 학과 정보 수정
+                    break;
+                case SUBJECT_CHOICE.DELETE:
+                    System.out.println("");
+                    subjectManager.subjectDelete(); // 학과 정보 삭제
+                    break;
+                case SUBJECT_CHOICE.MAIN: // 메인 메뉴
+                    return;
+                default:
+                    System.out.println("해당 메뉴 번호만 입력하세요.");
+            }// end of switch
+        } catch (InputMismatchException e) {
+            System.err.println("잘못된 입력 형식입니다. 숫자를 입력하세요.");
+            MenuViewer.choice.nextLine(); // 클리어
+        } catch (Exception e) {
+            System.out.println("\n입력에 오류가 있습니다.\n프로그램을 다시 시작하세요.");
+            return;
+        }
     }
 
 } // end of class
