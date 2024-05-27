@@ -37,18 +37,7 @@ public class LessonDAO {
         } catch (Exception e) {
             System.out.println(e);
         } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException se) {
-            }
+            DBUtil.closeResource(rs, pstmt, con);
         }
     } //end of getLessonTotalList()
 
@@ -75,16 +64,7 @@ public class LessonDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            DBUtil.closeResource(pstmt, con);
         }
     } //end of setLessonRegister
 
@@ -112,16 +92,7 @@ public class LessonDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            DBUtil.closeResource(pstmt, con);
         }
     } //end of setLessonUpdate()
 
@@ -148,16 +119,7 @@ public class LessonDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            DBUtil.closeResource(pstmt, con);
         }
     } //end of setLessonDelete()
 

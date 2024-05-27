@@ -34,16 +34,7 @@ public class TraineeDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            DBUtil.closeResource(pstmt, con);
         }
     } //end of setTraineeRegister()
 
@@ -69,16 +60,7 @@ public class TraineeDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            DBUtil.closeResource(pstmt, con);
         }
     } //end of setTraineeDelete()
 
@@ -116,18 +98,7 @@ public class TraineeDAO {
         } catch (Exception e) {
             System.out.println(e);
         } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException se) {
-            }
+            DBUtil.closeResource(rs, pstmt, con);
         }
     } //end of getTraineeTotalList()
 
@@ -157,18 +128,7 @@ public class TraineeDAO {
         } catch (Exception e) {
             System.out.println(e);
         } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException se) {
-            }
+            DBUtil.closeResource(rs, pstmt, con);
         }
         return l_abbre;
     } //end of getLessonNum

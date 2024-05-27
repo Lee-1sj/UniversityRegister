@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.StudentVO;
-import model.SubjectVO;
 
 public class StudentDAO {
     // 학생 등록
@@ -39,16 +38,7 @@ public class StudentDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            DBUtil.closeResource(pstmt, con);
         }
     } // end of setStudentRegister()
 
@@ -78,16 +68,7 @@ public class StudentDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            DBUtil.closeResource(pstmt, con);
         }
     } // end of setStudentUpdate()
 
@@ -111,18 +92,7 @@ public class StudentDAO {
         } catch (Exception e) {
             System.out.println(e);
         } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException se) {
-            }
+            DBUtil.closeResource(rs, pstmt, con);
         }
         return serialNumber;
     } // end of getStudentCount()
@@ -147,18 +117,7 @@ public class StudentDAO {
         } catch (Exception e) {
             System.out.println(e);
         } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException se) {
-            }
+            DBUtil.closeResource(rs, pstmt, con);
         }
         return idOverlapResult;
     } // end of getStudentIdOverlap()
@@ -184,18 +143,7 @@ public class StudentDAO {
         } catch (Exception e) {
             System.out.println(e);
         } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException se) {
-            }
+            DBUtil.closeResource(rs, pstmt, con);
         }
         return loginSuccess;
     } //end of getStudentLogin()
@@ -222,18 +170,7 @@ public class StudentDAO {
         } catch (Exception e) {
             System.out.println(e);
         } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException se) {
-            }
+            DBUtil.closeResource(rs, pstmt, con);
         }
         return sd_num;
     } // end of getStudentNum()
@@ -278,18 +215,7 @@ public class StudentDAO {
         } catch (Exception e) {
             System.out.println(e);
         } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException se) {
-            }
+            DBUtil.closeResource(rs, pstmt, con);
         }
     } // end of getStudent
 
@@ -333,18 +259,7 @@ public class StudentDAO {
         } catch (Exception e) {
             System.out.println(e);
         } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException se) {
-            }
+            DBUtil.closeResource(rs, pstmt, con);
         }
     } //end of getStudentTotalList()
 }
