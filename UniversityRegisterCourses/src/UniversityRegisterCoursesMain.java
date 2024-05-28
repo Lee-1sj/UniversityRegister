@@ -39,7 +39,9 @@ public class UniversityRegisterCoursesMain {
                         traineeMenu();
                         break;
                     case MENU_CHOICE.EXIT: // 5. 종료
-                        System.out.println("프로그램을 종료합니다.");
+                        System.out.println();
+                        System.out.println("           프로그램을 종료합니다.");
+                        System.out.println();
                         return;
                     default:
                         System.out.println("해당 메뉴 번호만 입력하세요.");
@@ -53,7 +55,6 @@ public class UniversityRegisterCoursesMain {
             }
 
         } // end of while
-
     }
 
     // 수강 신청 메뉴

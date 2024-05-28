@@ -19,9 +19,11 @@ public class SubjectDAO {
             con = DBUtil.getConnection();
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
-
+            System.out.println();
+            System.out.println("--------------------------------------------------");
             System.out.println("일련번호\t학과번호\t학과명");
-
+            System.out.println("--------------------------------------------------");
+            
             while (rs.next()) {
                 sVo = new SubjectVO();
                 sVo.setNo(rs.getInt("no"));
@@ -29,6 +31,8 @@ public class SubjectDAO {
                 sVo.setS_name(rs.getString("s_name"));
                 System.out.println(sVo.getNo() + "\t\t" + sVo.getS_num() + "\t\t" + sVo.getS_name());
             }
+            System.out.println("--------------------------------------------------");
+            System.out.println();
         } catch (SQLException se) {
             System.out.println(se);
         } catch (Exception e) {
