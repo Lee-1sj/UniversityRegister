@@ -84,7 +84,7 @@ public class StudentDAO {
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, subjectNum);
             rs = pstmt.executeQuery();
-            if (rs.next()){
+            if (rs.next()) {
                 serialNumber = rs.getString("studentCount");
             }
         } catch (SQLException se) {
@@ -97,7 +97,7 @@ public class StudentDAO {
         return serialNumber;
     } // end of getStudentCount()
 
-    //  학생 아이디 중복 체크
+    // 학생 아이디 중복 체크
     public boolean getStudentIdOverlap(String idOverlap) {
         String sql = "SELECT * FROM student WHERE sd_id = ?";
         Connection con = null;
@@ -109,7 +109,7 @@ public class StudentDAO {
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, idOverlap);
             rs = pstmt.executeQuery();
-            if (rs.next()){
+            if (rs.next()) {
                 idOverlapResult = true; // 중복된 아이디가 있다.
             }
         } catch (SQLException se) {
@@ -135,8 +135,8 @@ public class StudentDAO {
             pstmt.setString(1, id);
             pstmt.setString(2, pw);
             rs = pstmt.executeQuery();
-            if (rs.next()){
-                loginSuccess = true; // 중복된 아이디가 있다.
+            if (rs.next()) {
+                loginSuccess = true; // 중복
             }
         } catch (SQLException se) {
             System.out.println(se);
@@ -146,7 +146,7 @@ public class StudentDAO {
             DBUtil.closeResource(rs, pstmt, con);
         }
         return loginSuccess;
-    } //end of getStudentLogin()
+    } // end of getStudentLogin()
 
     // 학생 번호
     public String getStudentNum(String id, String pw) {
@@ -162,7 +162,7 @@ public class StudentDAO {
             pstmt.setString(1, id);
             pstmt.setString(2, pw);
             rs = pstmt.executeQuery();
-            if (rs.next()){
+            if (rs.next()) {
                 sd_num = rs.getString("sd_num");
             }
         } catch (SQLException se) {
@@ -192,7 +192,7 @@ public class StudentDAO {
 
             System.out.println("일련번호\t학생번호\t성명\t아이디\t비밀번호\t학과\t생년월일\t전화번호\t주소\t이메일\t등록일자");
 
-            if (rs.next()){
+            if (rs.next()) {
                 sVo = new StudentVO();
                 sVo.setNo(rs.getInt("no"));
                 sVo.setSd_num(rs.getString("sd_num"));
@@ -206,9 +206,11 @@ public class StudentDAO {
                 sVo.setSd_email(rs.getString("sd_email"));
                 sVo.setSd_date(rs.getString("sd_date") + "");
 
-                System.out.println(sVo.getNo() + "\t\t" + sVo.getSd_num() + "\t\t" + sVo.getSd_name() + "\t\t" + sVo.getSd_id() 
-                + "\t\t" + sVo.getSd_passwd() + "\t\t" + sVo.getS_num() + "\t\t" + sVo.getSd_birthday() + "\t\t" 
-                + sVo.getSd_phone() + "\t\t" + sVo.getSd_address() + "\t\t" + sVo.getSd_email() + "\t\t" + sVo.getSd_date());
+                System.out.println(sVo.getNo() + "\t\t" + sVo.getSd_num() + "\t\t" + sVo.getSd_name() + "\t\t"
+                        + sVo.getSd_id()
+                        + "\t\t" + sVo.getSd_passwd() + "\t\t" + sVo.getS_num() + "\t\t" + sVo.getSd_birthday() + "\t\t"
+                        + sVo.getSd_phone() + "\t\t" + sVo.getSd_address() + "\t\t" + sVo.getSd_email() + "\t\t"
+                        + sVo.getSd_date());
             }
         } catch (SQLException se) {
             System.out.println(se);
@@ -219,11 +221,11 @@ public class StudentDAO {
         }
     } // end of getStudent
 
-    //학생 전체 목록
+    // 학생 전체 목록
     public void getStudentTotalList() {
-        String sql = "SELECT st.no AS no, sd_num, sd_name, sd_id, sd_passwd, su.s_name as s_num, sd_birthday, sd_phone, sd_phone, sd_address, sd_email, sd_date" 
-        + " FROM STUDENT st, SUBJECT su WHERE st.s_num = su.s_num ORDER BY no";
-       
+        String sql = "SELECT st.no AS no, sd_num, sd_name, sd_id, sd_passwd, su.s_name as s_num, sd_birthday, sd_phone, sd_phone, sd_address, sd_email, sd_date"
+                + " FROM STUDENT st, SUBJECT su WHERE st.s_num = su.s_num ORDER BY no";
+
         Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -234,9 +236,16 @@ public class StudentDAO {
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
 
-            System.out.println("일련번호\t학생번호\t성명\t아이디\t\t비밀번호\t학과\t\t생년월일\t\t전화번호\t\t주소\t\t\t이메일\t\t\t등록일자");
-
-            while (rs.next()){
+            System.out.println();
+            System.out.println();
+            System.out.println("                                                                             학생 정보 전체 목록");
+            System.out.println(
+                    "=====================================================================================================================================================================================");
+            System.out.println(String.format("%-5s %-8s %-6s %-15s %-15s %-8s %-12s %-14s %-14s %-25s %-15s",
+                    "일련번호", "학생번호", "성명", "아이디", "비밀번호", "학과", "생년월일", "전화번호", "주소", "이메일", "등록일자"));
+            System.out.println(
+                    "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            while (rs.next()) {
                 sVo = new StudentVO();
                 sVo.setNo(rs.getInt("no"));
                 sVo.setSd_num(rs.getString("sd_num"));
@@ -250,10 +259,13 @@ public class StudentDAO {
                 sVo.setSd_email(rs.getString("sd_email"));
                 sVo.setSd_date(rs.getString("sd_date") + "");
 
-                System.out.println(sVo.getNo() + "\t\t" + sVo.getSd_num() + "\t" + sVo.getSd_name() + "\t" + sVo.getSd_id() 
-                + "\t" + sVo.getSd_passwd() + "\t" + sVo.getS_num() + "\t" + sVo.getSd_birthday() + "\t\t" 
-                + sVo.getSd_phone() + "\t\t" + sVo.getSd_address() + "\t\t" + sVo.getSd_email() + "\t" + sVo.getSd_date());
+                System.out.println(String.format("%-10s %-11s %-5s %-16s %-18s %-8s %-15s %-14s %-15s %-25s %-15s",
+                        sVo.getNo(), sVo.getSd_num(), sVo.getSd_name(), sVo.getSd_id(), sVo.getSd_passwd(),
+                        sVo.getS_num(), sVo.getSd_birthday(), sVo.getSd_phone(), sVo.getSd_address(),
+                        sVo.getSd_email(), sVo.getSd_date()));
             }
+            System.out.println(
+                    "=====================================================================================================================================================================================");
         } catch (SQLException se) {
             System.out.println(se);
         } catch (Exception e) {
@@ -261,5 +273,5 @@ public class StudentDAO {
         } finally {
             DBUtil.closeResource(rs, pstmt, con);
         }
-    } //end of getStudentTotalList()
+    } // end of getStudentTotalList()
 }

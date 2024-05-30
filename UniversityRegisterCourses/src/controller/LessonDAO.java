@@ -22,8 +22,9 @@ public class LessonDAO {
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
 
+            System.out.println("===========================================");
             System.out.println("일련번호\t과목약어\t과목명");
-
+            System.out.println("-------------------------------------------");
             while (rs.next()){
                 lVo = new LessonVO();
                 lVo.setNo(rs.getInt("no"));
@@ -32,6 +33,7 @@ public class LessonDAO {
 
                 System.out.println(lVo.getNo() + "\t\t" + lVo.getL_abbre() + "\t\t" + lVo.getL_name());
             }
+            System.out.println("===========================================");
         } catch (SQLException se) {
             System.out.println(se);
         } catch (Exception e) {

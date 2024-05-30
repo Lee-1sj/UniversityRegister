@@ -156,7 +156,7 @@ public class StudentRegisterManager {
         String pw;
         
         try {
-            System.out.println("학생 정보 전체 목록");
+            System.out.println();
             System.out.print("관리자 비밀번호 : ");
             pw = sc.nextLine();
     

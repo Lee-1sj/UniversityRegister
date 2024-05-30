@@ -48,7 +48,7 @@ public class UniversityRegisterCoursesMain {
                 }// end of switch
             } catch (InputMismatchException e) {
                 System.err.println("잘못된 입력 형식입니다. 숫자를 입력하세요.");
-                MenuViewer.choice.nextLine(); // 클리어
+                MenuViewer.choice.nextLine(); 
             } catch (Exception e) {
                 System.out.println("\n입력에 오류가 있습니다.\n프로그램을 다시 시작하세요.");
                 return;
@@ -88,7 +88,7 @@ public class UniversityRegisterCoursesMain {
             }
         } catch (InputMismatchException e) {
             System.err.println("잘못된 입력 형식입니다. 숫자를 입력하세요.");
-            MenuViewer.choice.nextLine(); // 클리어
+            MenuViewer.choice.nextLine(); 
         } catch (Exception e) {
             System.out.println("\n입력에 오류가 있습니다.\n프로그램을 다시 시작하세요.");
             return;
@@ -131,7 +131,7 @@ public class UniversityRegisterCoursesMain {
             }// end of switch
         } catch (InputMismatchException e) {
             System.err.println("잘못된 입력 형식입니다. 숫자를 입력하세요.");
-            MenuViewer.choice.nextLine(); // 클리어
+            MenuViewer.choice.nextLine();
         } catch (Exception e) {
             System.out.println("\n입력에 오류가 있습니다.\n프로그램을 다시 시작하세요.");
             return;
@@ -169,7 +169,7 @@ public class UniversityRegisterCoursesMain {
             }// end of switch
         } catch (InputMismatchException e) {
             System.err.println("잘못된 입력 형식입니다. 숫자를 입력하세요.");
-            MenuViewer.choice.nextLine(); // 클리어
+            MenuViewer.choice.nextLine();
         } catch (Exception e) {
             System.out.println("\n입력에 오류가 있습니다.\n프로그램을 다시 시작하세요.");
             return;
@@ -180,7 +180,6 @@ public class UniversityRegisterCoursesMain {
     // 학과 메뉴
     public static void subjectMenu() throws Exception {
         int choice;
-
         SubjectRegisterManager subjectManager = new SubjectRegisterManager();
         MenuViewer.subjectMenuView();
         
@@ -212,7 +211,7 @@ public class UniversityRegisterCoursesMain {
             }// end of switch
         } catch (InputMismatchException e) {
             System.err.println("잘못된 입력 형식입니다. 숫자를 입력하세요.");
-            MenuViewer.choice.nextLine(); // 클리어
+            MenuViewer.choice.nextLine(); 
         } catch (Exception e) {
             System.out.println("\n입력에 오류가 있습니다.\n프로그램을 다시 시작하세요.");
             return;

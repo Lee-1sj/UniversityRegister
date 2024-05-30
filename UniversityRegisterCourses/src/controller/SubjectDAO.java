@@ -20,7 +20,8 @@ public class SubjectDAO {
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
             System.out.println();
-            System.out.println("--------------------------------------------------");
+            System.out.println("                학과 전체 리스트");
+            System.out.println("==================================================");
             System.out.println("일련번호\t학과번호\t학과명");
             System.out.println("--------------------------------------------------");
             
@@ -31,7 +32,7 @@ public class SubjectDAO {
                 sVo.setS_name(rs.getString("s_name"));
                 System.out.println(sVo.getNo() + "\t\t" + sVo.getS_num() + "\t\t" + sVo.getS_name());
             }
-            System.out.println("--------------------------------------------------");
+            System.out.println("==================================================");
             System.out.println();
         } catch (SQLException se) {
             System.out.println(se);

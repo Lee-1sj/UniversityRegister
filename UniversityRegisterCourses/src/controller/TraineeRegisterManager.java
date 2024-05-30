@@ -56,7 +56,6 @@ public class TraineeRegisterManager {
         TraineeDAO td = new TraineeDAO();
         TraineeVO tvo = new TraineeVO();
         LessonDAO ld = new LessonDAO();
-        LessonVO lvo = new LessonVO();
         StudentDAO sdao = new StudentDAO();
 
         String sd_num;      //학번

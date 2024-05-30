@@ -13,7 +13,8 @@ public class LessonRegisterManager {
     public void lessonList() {
         LessonDAO ld = new LessonDAO();
         try {
-            System.out.println("과목 전체 리스트");
+            System.out.println();
+            System.out.println("            과목 전체 리스트");
             ld.getLessonTotalList();
             System.out.println();
         } catch (Exception e) {
